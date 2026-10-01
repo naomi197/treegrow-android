@@ -1,0 +1,71 @@
+# Gradle files
+.gradle/
+build/
+*.apk
+*.aar
+*.jks
+*.keystore
+
+# Local configuration file (sdk path, etc)
+local.properties
+
+# Log/OS Files
+*.log
+.DS_Store
+
+# Android Studio
+.idea/
+.idea/caches
+.idea/gradle.xml
+.idea/libraries
+.idea/modules.xml
+.idea/workspace.xml
+.idea/navEditor.xml
+.idea/assetWizardSettings.xml
+.idea/.name
+*.iml
+*.iws
+*.ipr
+
+# Kotlin/Java
+*.class
+*.jar
+*.war
+*.aar
+*.jar
+*.zip
+*.tar.gz
+*.rar
+
+# Compiled Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+*.swp
+*.swo
+*~
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+Thumbs.db
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Firebase
+google-services.json
+firebase-debug.log
+
+# API Keys
+**/secrets/
+**/keys/
+**/*-keys.json
