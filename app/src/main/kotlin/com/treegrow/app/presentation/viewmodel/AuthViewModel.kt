@@ -42,7 +42,7 @@ class AuthViewModel @Inject constructor(
 
     fun login(email: String, password: String) {
         if (email.isBlank() || password.isBlank()) {
-            _loginUiState.update { it.copy(error = "البريد الإلكتروني وكلمة المرور مطلوبة") }
+            _loginUiState.update { it.copy(error = "Email and password are required") }
             return
         }
 
@@ -64,7 +64,7 @@ class AuthViewModel @Inject constructor(
                 _loginUiState.update {
                     it.copy(
                         isLoading = false,
-                        error = e.message ?: "فشل في الدخول"
+                        error = e.message ?: "Login failed"
                     )
                 }
                 Timber.e("Login failed: ${e.message}")
@@ -76,23 +76,23 @@ class AuthViewModel @Inject constructor(
         // Validation
         when {
             username.isBlank() -> {
-                _signupUiState.update { it.copy(error = "اسم المستخدم مطلوب") }
+                _signupUiState.update { it.copy(error = "Username is required") }
                 return
             }
             email.isBlank() -> {
-                _signupUiState.update { it.copy(error = "البريد الإلكتروني مطلوب") }
+                _signupUiState.update { it.copy(error = "Email is required") }
                 return
             }
             password.isBlank() -> {
-                _signupUiState.update { it.copy(error = "كلمة المرور مطلوبة") }
+                _signupUiState.update { it.copy(error = "Password is required") }
                 return
             }
             password.length < 6 -> {
-                _signupUiState.update { it.copy(error = "يجب أن تكون كلمة المرور 6 أحرف على الأقل") }
+                _signupUiState.update { it.copy(error = "Password must be at least 6 characters") }
                 return
             }
             password != confirmPassword -> {
-                _signupUiState.update { it.copy(error = "كلمات المرور غير متطابقة") }
+                _signupUiState.update { it.copy(error = "Passwords do not match") }
                 return
             }
         }
@@ -125,7 +125,7 @@ class AuthViewModel @Inject constructor(
                     _signupUiState.update {
                         it.copy(
                             isLoading = false,
-                            error = error.message ?: "فشل في إنشاء الحساب"
+                            error = error.message ?: "Failed to create account"
                         )
                     }
                     Timber.e("Signup failed: ${error.message}")
@@ -134,7 +134,7 @@ class AuthViewModel @Inject constructor(
                 _signupUiState.update {
                     it.copy(
                         isLoading = false,
-                        error = e.message ?: "فشل في التسجيل"
+                        error = e.message ?: "Registration failed"
                     )
                 }
                 Timber.e("Signup exception: ${e.message}")

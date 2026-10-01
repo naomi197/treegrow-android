@@ -52,7 +52,7 @@ fun LoginScreen(
         )
 
         Text(
-            text = "به جنبش سبز ما بپیوندید",
+            text = "Join the green revolution",
             style = MaterialTheme.typography.bodyLarge,
             color = Color.Gray,
             modifier = Modifier.padding(bottom = 32.dp)
@@ -61,7 +61,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = email,
             onValueChange = { email = it },
-            label = { Text("ایمیل") },
+            label = { Text("Email") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 16.dp),
@@ -72,7 +72,7 @@ fun LoginScreen(
         OutlinedTextField(
             value = password,
             onValueChange = { password = it },
-            label = { Text("رمز عبور") },
+            label = { Text("Password") },
             modifier = Modifier
                 .fillMaxWidth()
                 .padding(bottom = 24.dp),
@@ -104,7 +104,7 @@ fun LoginScreen(
                     color = Color.White
                 )
             } else {
-                Text("ورود", color = Color.White, fontWeight = FontWeight.Bold)
+                Text("Sign In", color = Color.White, fontWeight = FontWeight.Bold)
             }
         }
 
@@ -112,7 +112,7 @@ fun LoginScreen(
             onClick = { navController.navigate("signup") },
             modifier = Modifier.padding(top = 16.dp)
         ) {
-            Text("حسابی ندارید؟ ثبت‌نام کنید", color = PrimaryGreen)
+            Text("Don't have an account? Sign Up", color = PrimaryGreen)
         }
     }
 }

@@ -13,8 +13,8 @@
     <string name="login_button">Sign In</string>
     <string name="signup_button">Sign Up</string>
     <string name="forgot_password">Forgot Password?</string>
-    <string name="no_account">Don\'t have an account? Sign up</string>
-    <string name="have_account">Already have an account? Sign in</string>
+    <string name="no_account">Don't have an account? Sign Up</string>
+    <string name="have_account">Already have an account? Sign In</string>
     
     <!-- Home Screen Strings -->
     <string name="my_trees">My Trees</string>
@@ -22,12 +22,17 @@
     <string name="achievements">Achievements</string>
     <string name="next_tree">Next Tree</string>
     <string name="trees_planted">Trees Planted</string>
+    <string name="complete_activities">Complete 5 green activities</string>
+    <string name="world_tree_map">World Tree Map</string>
+    <string name="social_challenges">Social Challenges</string>
+    <string name="my_achievements">My Achievements</string>
+    <string name="leaderboard">Leaderboard</string>
+    <string name="plant_trees_save_world">Plant trees, save the world</string>
     
     <!-- Navigation Strings -->
     <string name="home">Home</string>
     <string name="map">Map</string>
     <string name="profile">Profile</string>
-    <string name="leaderboard">Leaderboard</string>
     <string name="challenges">Challenges</string>
     
     <!-- Errors -->
@@ -35,6 +40,12 @@
     <string name="error_unknown">Unknown Error</string>
     <string name="error_invalid_email">Invalid Email</string>
     <string name="error_password_short">Password must be at least 6 characters</string>
+    <string name="email_required">Email is required</string>
+    <string name="password_required">Password is required</string>
+    <string name="username_required">Username is required</string>
+    <string name="passwords_not_match">Passwords do not match</string>
+    <string name="agree_terms">I agree to Terms and Conditions</string>
+    <string name="join_green_revolution">Join the green revolution</string>
     
     <!-- Google Maps API Key -->
     <string name="google_maps_api_key">YOUR_GOOGLE_MAPS_API_KEY</string>

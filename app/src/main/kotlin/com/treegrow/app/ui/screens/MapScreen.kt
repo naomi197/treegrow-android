@@ -22,7 +22,7 @@ fun MapScreen(navController: NavController) {
             TopAppBar(
                 title = {
                     Text(
-                        "🗺️ نقشه درخت‌های جهان",
+                        "🗺️ World Tree Map",
                         fontWeight = FontWeight.Bold,
                         color = Color.White
                     )
@@ -52,12 +52,12 @@ fun MapScreen(navController: NavController) {
                 modifier = Modifier.padding(bottom = 16.dp)
             )
             Text(
-                text = "Google Maps integration",
+                text = "Google Maps Integration",
                 style = MaterialTheme.typography.headlineSmall,
                 modifier = Modifier.padding(bottom = 8.dp)
             )
             Text(
-                text = "نقشهٔ تعاملی درخت‌های کاشته شده در سراسر جهان",
+                text = "View all trees planted around the world",
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.Gray
             )

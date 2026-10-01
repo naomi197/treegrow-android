@@ -11,12 +11,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
-import com.treegrow.app.R
 import com.treegrow.app.ui.theme.PrimaryGreen
 import com.treegrow.app.ui.theme.SecondaryGreen
 import com.treegrow.app.ui.theme.TertiaryGreen
@@ -41,7 +39,7 @@ fun HomeScreen(navController: NavController) {
         )
 
         Text(
-            text = "کاشت درخت، نجات جهان",
+            text = "Plant trees, save the world",
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             color = Color.Gray,
@@ -59,7 +57,7 @@ fun HomeScreen(navController: NavController) {
         Spacer(modifier = Modifier.height(24.dp))
 
         // Action Buttons
-        ActionsSection()
+        ActionsSection(navController)
 
         Spacer(modifier = Modifier.height(32.dp))
     }
@@ -90,19 +88,19 @@ fun StatsSection() {
         horizontalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         StatCard(
-            title = "درخت‌های من",
+            title = "My Trees",
             value = "24",
             icon = "🌱",
             modifier = Modifier.weight(1f)
         )
         StatCard(
-            title = "نقاط",
+            title = "Points",
             value = "1,240",
             icon = "⭐",
             modifier = Modifier.weight(1f)
         )
         StatCard(
-            title = "دستاوردها",
+            title = "Achievements",
             value = "8",
             icon = "🏆",
             modifier = Modifier.weight(1f)
@@ -179,12 +177,12 @@ fun TreeDisplaySection() {
                 modifier = Modifier.padding(bottom = 16.dp)
             )
             Text(
-                text = "درخت بعدی شما",
+                text = "Your Next Tree",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "برای بعد از 5 فعالیت سبز",
+                text = "Complete 5 green activities",
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.Gray,
                 modifier = Modifier.padding(top = 8.dp)
@@ -199,7 +197,7 @@ fun TreeDisplaySection() {
                 trackColor = PrimaryGreen.copy(alpha = 0.2f)
             )
             Text(
-                text = "3 از 5",
+                text = "3 of 5",
                 style = MaterialTheme.typography.bodySmall,
                 modifier = Modifier.padding(top = 8.dp),
                 color = PrimaryGreen
@@ -209,30 +207,30 @@ fun TreeDisplaySection() {
 }
 
 @Composable
-fun ActionsSection() {
+fun ActionsSection(navController: NavController) {
     Column(
         modifier = Modifier.fillMaxWidth(),
         verticalArrangement = Arrangement.spacedBy(12.dp)
     ) {
         ActionButton(
-            title = "نقشه درخت‌های جهان",
+            title = "World Tree Map",
             icon = "🗺️",
-            onClick = { /* Navigate to map */ }
+            onClick = { navController.navigate("map") }
         )
         ActionButton(
-            title = "چالش‌های اجتماعی",
+            title = "Social Challenges",
             icon = "👥",
-            onClick = { /* Navigate to challenges */ }
+            onClick = { navController.navigate("challenges") }
         )
         ActionButton(
-            title = "دستاوردهای من",
+            title = "My Achievements",
             icon = "🏅",
-            onClick = { /* Navigate to achievements */ }
+            onClick = { navController.navigate("achievements") }
         )
         ActionButton(
-            title = "رتبه‌بندی کاربران",
+            title = "Leaderboard",
             icon = "📊",
-            onClick = { /* Navigate to leaderboard */ }
+            onClick = { navController.navigate("leaderboard") }
         )
     }
 }

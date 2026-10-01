@@ -24,14 +24,14 @@ import com.treegrow.app.ui.theme.TertiaryGreen
 @Composable
 fun AchievementsScreen(navController: NavController) {
     val achievements = listOf(
-        AchievementItem("🌱", "کاشت اول", true),
-        AchievementItem("🌳", "10 درخت", true),
-        AchievementItem("🏆", "50 درخت", false),
-        AchievementItem("⭐", "1000 نقطه", true),
-        AchievementItem("👥", "دوست‌یابی", true),
-        AchievementItem("🌍", "کاشت جهانی", false),
-        AchievementItem("🎯", "چالش فاتح", false),
-        AchievementItem("💚", "پیام‌بر سبز", false)
+        AchievementItem("🌱", "First Plant", true),
+        AchievementItem("🌳", "10 Trees", true),
+        AchievementItem("🏆", "50 Trees", false),
+        AchievementItem("⭐", "1000 Points", true),
+        AchievementItem("👥", "Team Player", true),
+        AchievementItem("🌍", "Global Planter", false),
+        AchievementItem("🎖️", "Challenge Master", false),
+        AchievementItem("💚", "Green Hero", false)
     )
 
     Scaffold(
@@ -39,7 +39,7 @@ fun AchievementsScreen(navController: NavController) {
             TopAppBar(
                 title = {
                     Text(
-                        "🏅 دستاوردهای من",
+                        "🏅 Achievements",
                         fontWeight = FontWeight.Bold,
                         color = Color.White
                     )
@@ -103,7 +103,7 @@ fun AchievementCard(achievement: AchievementItem) {
             )
             if (!achievement.unlocked) {
                 Text(
-                    text = "قفل شده",
+                    text = "Locked",
                     style = MaterialTheme.typography.bodySmall,
                     color = Color.Gray,
                     modifier = Modifier.padding(top = 4.dp)

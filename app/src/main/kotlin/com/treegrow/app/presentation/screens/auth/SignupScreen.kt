@@ -43,7 +43,7 @@ fun SignupScreen(
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text("ثبت‌نام", fontWeight = FontWeight.Bold, color = Color.White) },
+                title = { Text("Create Account", fontWeight = FontWeight.Bold, color = Color.White) },
                 navigationIcon = {
                     IconButton(onClick = { navController.popBackStack() }) {
                         Icon(Icons.Default.ArrowBack, contentDescription = "Back", tint = Color.White)
@@ -63,7 +63,7 @@ fun SignupScreen(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "یک حساب جدید بسازید",
+                text = "Create Your Account",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(bottom = 24.dp)
@@ -72,7 +72,7 @@ fun SignupScreen(
             OutlinedTextField(
                 value = username,
                 onValueChange = { username = it },
-                label = { Text("نام کاربری") },
+                label = { Text("Username") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 12.dp),
@@ -83,7 +83,7 @@ fun SignupScreen(
             OutlinedTextField(
                 value = email,
                 onValueChange = { email = it },
-                label = { Text("ایمیل") },
+                label = { Text("Email") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 12.dp),
@@ -94,7 +94,7 @@ fun SignupScreen(
             OutlinedTextField(
                 value = password,
                 onValueChange = { password = it },
-                label = { Text("رمز عبور") },
+                label = { Text("Password") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 12.dp),
@@ -106,7 +106,7 @@ fun SignupScreen(
             OutlinedTextField(
                 value = confirmPassword,
                 onValueChange = { confirmPassword = it },
-                label = { Text("تأیید رمز عبور") },
+                label = { Text("Confirm Password") },
                 modifier = Modifier
                     .fillMaxWidth()
                     .padding(bottom = 16.dp),
@@ -127,7 +127,7 @@ fun SignupScreen(
                     enabled = !uiState.isLoading
                 )
                 Text(
-                    text = "من شرایط و ضوابط را می‌پذیرم",
+                    text = "I agree to Terms and Conditions",
                     style = MaterialTheme.typography.bodySmall,
                     modifier = Modifier.padding(start = 8.dp)
                 )
@@ -158,7 +158,7 @@ fun SignupScreen(
                         color = Color.White
                     )
                 } else {
-                    Text("ثبت‌نام", color = Color.White, fontWeight = FontWeight.Bold)
+                    Text("Sign Up", color = Color.White, fontWeight = FontWeight.Bold)
                 }
             }
         }

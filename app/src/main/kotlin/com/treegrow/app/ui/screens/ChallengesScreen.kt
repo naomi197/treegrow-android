@@ -21,10 +21,10 @@ import com.treegrow.app.ui.theme.SecondaryGreen
 @Composable
 fun ChallengesScreen(navController: NavController) {
     val challenges = listOf(
-        ChallengeData("کاشت 100 درخت", "👥", 100, 500, "دسته‌جمعی"),
-        ChallengeData("هفته سبز", "📅", 50, 250, "محدود زمانی"),
-        ChallengeData("رقابت دوستانه", "🏃", 30, 150, "رقابتی"),
-        ChallengeData("درخت‌های مختلف", "🌳", 25, 200, "تنوع")
+        ChallengeData("Plant 100 Trees", "👥", 100, 500, "Community", 0),
+        ChallengeData("Green Week", "📅", 50, 250, "Limited Time", 0),
+        ChallengeData("Friend Challenge", "🏃", 30, 150, "Competitive", 0),
+        ChallengeData("Tree Variety", "🌳", 25, 200, "Diversity", 0)
     )
 
     Scaffold(
@@ -32,7 +32,7 @@ fun ChallengesScreen(navController: NavController) {
             TopAppBar(
                 title = {
                     Text(
-                        "👥 چالش‌های اجتماعی",
+                        "👥 Challenges",
                         fontWeight = FontWeight.Bold,
                         color = Color.White
                     )
@@ -136,7 +136,7 @@ fun ChallengeCard(challenge: ChallengeData) {
                     )
                 ) {
                     Text(
-                        "شرکت‌کردن",
+                        "Join",
                         style = MaterialTheme.typography.labelSmall,
                         color = Color.White
                     )

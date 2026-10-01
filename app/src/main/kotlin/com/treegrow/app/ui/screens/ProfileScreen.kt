@@ -28,7 +28,7 @@ fun ProfileScreen(navController: NavController) {
             TopAppBar(
                 title = {
                     Text(
-                        "👤 پروفایل من",
+                        "👤 Profile",
                         fontWeight = FontWeight.Bold,
                         color = Color.White
                     )
@@ -74,13 +74,13 @@ fun ProfileScreen(navController: NavController) {
             }
 
             Text(
-                text = "علیرضا فاظلی",
+                text = "Alex Chen",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier.padding(top = 16.dp)
             )
             Text(
-                text = "@naomi197",
+                text = "@alexchen2024",
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.Gray
             )
@@ -92,9 +92,9 @@ fun ProfileScreen(navController: NavController) {
                     .padding(vertical = 24.dp),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                StatColumn("سطح", "5")
-                StatColumn("نقاط", "5,420")
-                StatColumn("درخت", "24")
+                StatColumn("Level", "5")
+                StatColumn("Points", "5,420")
+                StatColumn("Trees", "24")
             }
 
             Divider(modifier = Modifier.padding(vertical = 16.dp))
@@ -112,12 +112,12 @@ fun ProfileScreen(navController: NavController) {
                     modifier = Modifier.padding(16.dp)
                 ) {
                     Text(
-                        "درباره من",
+                        "About Me",
                         style = MaterialTheme.typography.titleMedium,
                         fontWeight = FontWeight.Bold
                     )
                     Text(
-                        "من علاقه‌مند به محیط زیست و دوست‌دار درخت‌های سبز هستم! 🌍",
+                        "I'm passionate about nature and planting trees to save our planet! 🌍",
                         style = MaterialTheme.typography.bodySmall,
                         modifier = Modifier.padding(top = 8.dp),
                         color = Color.Gray
@@ -130,7 +130,7 @@ fun ProfileScreen(navController: NavController) {
 
             // Achievements
             Text(
-                text = "آخرین دستاوردها",
+                text = "Recent Achievements",
                 style = MaterialTheme.typography.titleMedium,
                 fontWeight = FontWeight.Bold,
                 modifier = Modifier
@@ -149,7 +149,7 @@ fun ProfileScreen(navController: NavController) {
                         color = SecondaryGreen
                     ) {
                         Box(contentAlignment = Alignment.Center) {
-                            Text("🏅", style = MaterialTheme.typography.headlineSmall)
+                            Text("🏆", style = MaterialTheme.typography.headlineSmall)
                         }
                     }
                 }
@@ -189,10 +189,10 @@ fun StatsDetailCard() {
             modifier = Modifier.padding(16.dp),
             verticalArrangement = Arrangement.spacedBy(12.dp)
         ) {
-            StatRow("کربن گیرا شده", "125.4 کیلوگرم")
-            StatRow("درخت‌های واقعی", "5 درخت")
-            StatRow("تاریخ پیوستن", "3 ماه پیش")
-            StatRow("کشور", "ایران 🇮🇷")
+            StatRow("Carbon Captured", "125.4 kg")
+            StatRow("Real Trees Planted", "5 trees")
+            StatRow("Member Since", "3 months ago")
+            StatRow("Country", "United States 🇺🇸")
         }
     }
 }

@@ -22,11 +22,11 @@ import com.treegrow.app.ui.theme.SecondaryGreen
 @Composable
 fun LeaderboardScreen(navController: NavController) {
     val leaderboardData = listOf(
-        LeaderboardEntry(1, "علیرضا", 5420, "🥇"),
-        LeaderboardEntry(2, "فاطمه", 4830, "🥈"),
-        LeaderboardEntry(3, "محمد", 4210, "🥉"),
-        LeaderboardEntry(4, "زهرا", 3890, ""),
-        LeaderboardEntry(5, "حسن", 3450, "")
+        LeaderboardEntry(1, "Alex Chen", 5420, "🥇"),
+        LeaderboardEntry(2, "Emma Watson", 4830, "🥈"),
+        LeaderboardEntry(3, "Muhammad Ali", 4210, "🥉"),
+        LeaderboardEntry(4, "Sofia Rodriguez", 3890, ""),
+        LeaderboardEntry(5, "Hassan Ibrahim", 3450, "")
     )
 
     Scaffold(
@@ -34,7 +34,7 @@ fun LeaderboardScreen(navController: NavController) {
             TopAppBar(
                 title = {
                     Text(
-                        "📊 رتبه‌بندی کاربران",
+                        "📊 Leaderboard",
                         fontWeight = FontWeight.Bold,
                         color = Color.White
                     )
@@ -111,13 +111,13 @@ fun LeaderboardItem(entry: LeaderboardEntry) {
                     fontWeight = FontWeight.Bold
                 )
                 Text(
-                    "${entry.points} نقطه",
+                    "${entry.points} points",
                     style = MaterialTheme.typography.bodySmall,
                     color = Color.Gray
                 )
             }
             Text(
-                "🌳 ${entry.rank * 2}",
+                text = "🌳 ${entry.rank * 2}",
                 style = MaterialTheme.typography.titleSmall
             )
         }
