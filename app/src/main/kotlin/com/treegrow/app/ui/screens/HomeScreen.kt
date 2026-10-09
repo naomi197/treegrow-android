@@ -1,6 +1,8 @@
 package com.treegrow.app.ui.screens
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
@@ -159,10 +161,7 @@ fun TreeDisplaySection() {
         colors = CardDefaults.cardColors(
             containerColor = SecondaryGreen.copy(alpha = 0.1f)
         ),
-        border = androidx.compose.foundation.border(
-            width = 2.dp,
-            color = SecondaryGreen
-        )
+        border = BorderStroke(2.dp, SecondaryGreen)
     ) {
         Column(
             modifier = Modifier

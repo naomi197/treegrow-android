@@ -2,10 +2,10 @@ package com.treegrow.app.ui.components
 
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Home
-import androidx.compose.material.icons.filled.MapOutlined
+import androidx.compose.material.icons.filled.Map
 import androidx.compose.material.icons.filled.Person
 import androidx.compose.material.icons.outlined.Home
-import androidx.compose.material.icons.outlined.MapOutlined
+import androidx.compose.material.icons.outlined.Map
 import androidx.compose.material.icons.outlined.Person
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
@@ -32,8 +32,8 @@ fun BottomNavBar(navController: NavController, currentRoute: String?) {
         ),
         BottomNavItem(
             label = "نقشه",
-            icon = Icons.Outlined.MapOutlined,
-            selectedIcon = Icons.Filled.MapOutlined,
+            icon = Icons.Outlined.Map,
+            selectedIcon = Icons.Filled.Map,
             route = "map"
         ),
         BottomNavItem(

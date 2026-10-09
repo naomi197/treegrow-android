@@ -36,6 +36,8 @@ cd treegrow-android
 ./gradlew assembleDebug
 ```
 
+`app/google-services.json` is a local placeholder so the project compiles without a Firebase account. Replace it with the file from a Firebase project before using sign-in. Until then, the login screen opens and sign-in reports the Firebase error.
+
 ## Project structure
 
 ```text

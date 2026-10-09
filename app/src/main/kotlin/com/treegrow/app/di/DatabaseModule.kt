@@ -2,6 +2,9 @@ package com.treegrow.app.di
 
 import android.content.Context
 import androidx.room.Room
+import com.treegrow.app.data.local.dao.AchievementDao
+import com.treegrow.app.data.local.dao.TreeDao
+import com.treegrow.app.data.local.dao.UserDao
 import com.treegrow.app.data.local.database.TreeGrowDatabase
 import dagger.Module
 import dagger.Provides
@@ -25,4 +28,13 @@ object DatabaseModule {
             "treegrow_database"
         ).build()
     }
+
+    @Provides
+    fun provideUserDao(database: TreeGrowDatabase): UserDao = database.userDao()
+
+    @Provides
+    fun provideTreeDao(database: TreeGrowDatabase): TreeDao = database.treeDao()
+
+    @Provides
+    fun provideAchievementDao(database: TreeGrowDatabase): AchievementDao = database.achievementDao()
 }

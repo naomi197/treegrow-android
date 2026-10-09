@@ -37,6 +37,9 @@ local.properties
 *.tar.gz
 *.rar
 
+# Gradle wrapper
+!gradle/wrapper/gradle-wrapper.jar
+
 # Compiled Python
 __pycache__/
 *.py[cod]
@@ -62,8 +65,8 @@ Thumbs.db
 .LSOverride
 
 # Firebase
-google-services.json
 firebase-debug.log
+# The committed file is a local placeholder. A real Firebase project replaces it.
 
 # API Keys
 **/secrets/
