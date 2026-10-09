@@ -53,6 +53,15 @@ class TreeRepository @Inject constructor(
         }
     }
 
+    suspend fun plantTreeOnDevice(tree: Tree): Result<Tree> = runCatching {
+        treeDao.insertTree(tree)
+        tree
+    }
+
+    suspend fun listLocalTrees(userId: String): Result<List<Tree>> = runCatching {
+        treeDao.getUserTrees(userId)
+    }
+
     suspend fun getUserTreeCount(userId: String): Int = treeDao.getUserTreeCount(userId)
 
     suspend fun getUserTotalCarbonCaptured(userId: String): Double =

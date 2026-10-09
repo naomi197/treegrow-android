@@ -44,4 +44,17 @@ class UserRepository @Inject constructor(
     }
 
     suspend fun getLocalUser(userId: String): User? = userDao.getUserById(userId)
+
+    suspend fun ensureLocalUser(userId: String, username: String): User {
+        val existing = userDao.getUserById(userId)
+        if (existing != null) return existing
+        val user = User(
+            id = userId,
+            username = username,
+            email = "",
+            joinedDate = System.currentTimeMillis()
+        )
+        userDao.insertUser(user)
+        return user
+    }
 }

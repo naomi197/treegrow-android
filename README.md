@@ -8,7 +8,7 @@ Android application for virtual tree planting and personal environmental-impact 
 
 Users record planted trees, review achievements, and keep a local profile. Room stores trees, users, and achievements on the device. Firebase, network, and authentication modules are in the project. Sign-in, a live map, and NGO planting are still on the roadmap.
 
-Developer: [alirezafazeli@live.com](mailto:alirezafazeli@live.com)
+Developer: Alireza Sani · [alirezafazeli@live.com](mailto:alirezafazeli@live.com)
 
 ## Features
 
@@ -36,7 +36,7 @@ cd treegrow-android
 ./gradlew assembleDebug
 ```
 
-`app/google-services.json` is a local placeholder so the project compiles without a Firebase account. Replace it with the file from a Firebase project before using sign-in. Until then, the login screen opens and sign-in reports the Firebase error.
+`app/google-services.json` is a local placeholder so the project compiles without a Firebase account. Replace it with the file from a Firebase project before using email sign-in. Until then, choose **Continue on this device**. Tree records are stored in Room on the phone, and the add button writes a local tree.
 
 ## Project structure
 

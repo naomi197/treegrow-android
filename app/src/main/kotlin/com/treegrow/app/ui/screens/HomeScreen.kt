@@ -10,19 +10,37 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Add
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
+import com.google.firebase.auth.FirebaseAuth
+import com.treegrow.app.domain.models.Tree
+import com.treegrow.app.domain.models.TreeType
+import com.treegrow.app.presentation.viewmodel.AuthViewModel
+import com.treegrow.app.presentation.viewmodel.HomeViewModel
 import com.treegrow.app.ui.theme.PrimaryGreen
 import com.treegrow.app.ui.theme.SecondaryGreen
 import com.treegrow.app.ui.theme.TertiaryGreen
 
 @Composable
-fun HomeScreen(navController: NavController) {
+fun HomeScreen(
+    navController: NavController,
+    viewModel: HomeViewModel = hiltViewModel()
+) {
+    val uiState by viewModel.uiState.collectAsState()
+    val userId = FirebaseAuth.getInstance().currentUser?.uid ?: AuthViewModel.LOCAL_DEVICE_USER_ID
+
+    LaunchedEffect(userId) {
+        viewModel.initializeUser(userId)
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -41,20 +59,26 @@ fun HomeScreen(navController: NavController) {
         )
 
         Text(
-            text = "Plant trees, save the world",
+            text = "Local tree records on this device",
             style = MaterialTheme.typography.bodyLarge,
             textAlign = TextAlign.Center,
             color = Color.Gray,
             modifier = Modifier.padding(bottom = 32.dp)
         )
 
-        // Stats Cards
-        StatsSection()
+        StatsSection(treeCount = uiState.userTrees.size)
 
         Spacer(modifier = Modifier.height(24.dp))
 
-        // Tree Display
-        TreeDisplaySection()
+        TreeDisplaySection(trees = uiState.userTrees)
+
+        if (uiState.error != null) {
+            Text(
+                text = uiState.error ?: "",
+                color = MaterialTheme.colorScheme.error,
+                modifier = Modifier.padding(top = 12.dp)
+            )
+        }
 
         Spacer(modifier = Modifier.height(24.dp))
 
@@ -72,7 +96,19 @@ fun HomeScreen(navController: NavController) {
         contentAlignment = Alignment.BottomEnd
     ) {
         FloatingActionButton(
-            onClick = { /* Plant new tree */ },
+            onClick = {
+                val ownerId = uiState.userId.ifBlank { userId }
+                viewModel.plantTree(
+                    Tree(
+                        userId = ownerId,
+                        name = "Tree ${uiState.userTrees.size + 1}",
+                        type = TreeType.OAK,
+                        plantedDate = System.currentTimeMillis(),
+                        latitude = 0.0,
+                        longitude = 0.0
+                    )
+                )
+            },
             containerColor = PrimaryGreen,
             contentColor = Color.White
         ) {
@@ -82,7 +118,7 @@ fun HomeScreen(navController: NavController) {
 }
 
 @Composable
-fun StatsSection() {
+fun StatsSection(treeCount: Int) {
     Row(
         modifier = Modifier
             .fillMaxWidth()
@@ -91,20 +127,14 @@ fun StatsSection() {
     ) {
         StatCard(
             title = "My Trees",
-            value = "24",
+            value = treeCount.toString(),
             icon = "🌱",
             modifier = Modifier.weight(1f)
         )
         StatCard(
-            title = "Points",
-            value = "1,240",
-            icon = "⭐",
-            modifier = Modifier.weight(1f)
-        )
-        StatCard(
-            title = "Achievements",
-            value = "8",
-            icon = "🏆",
+            title = "Storage",
+            value = "Device",
+            icon = "📱",
             modifier = Modifier.weight(1f)
         )
     }
@@ -153,7 +183,7 @@ fun StatCard(
 }
 
 @Composable
-fun TreeDisplaySection() {
+fun TreeDisplaySection(trees: List<Tree>) {
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -176,30 +206,20 @@ fun TreeDisplaySection() {
                 modifier = Modifier.padding(bottom = 16.dp)
             )
             Text(
-                text = "Your Next Tree",
+                text = if (trees.isEmpty()) "No trees yet" else "${trees.size} saved",
                 style = MaterialTheme.typography.headlineSmall,
                 fontWeight = FontWeight.Bold
             )
             Text(
-                text = "Complete 5 green activities",
+                text = if (trees.isEmpty()) {
+                    "Add a tree to keep a local record"
+                } else {
+                    trees.take(3).joinToString(" · ") { "${it.name} (${it.type.name.lowercase()})" }
+                },
                 style = MaterialTheme.typography.bodyMedium,
                 color = Color.Gray,
+                textAlign = TextAlign.Center,
                 modifier = Modifier.padding(top = 8.dp)
-            )
-            LinearProgressIndicator(
-                progress = { 0.6f },
-                modifier = Modifier
-                    .fillMaxWidth(0.8f)
-                    .height(8.dp)
-                    .padding(top = 16.dp),
-                color = PrimaryGreen,
-                trackColor = PrimaryGreen.copy(alpha = 0.2f)
-            )
-            Text(
-                text = "3 of 5",
-                style = MaterialTheme.typography.bodySmall,
-                modifier = Modifier.padding(top = 8.dp),
-                color = PrimaryGreen
             )
         }
     }

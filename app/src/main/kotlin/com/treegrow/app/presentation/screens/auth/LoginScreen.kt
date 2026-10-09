@@ -108,9 +108,27 @@ fun LoginScreen(
             }
         }
 
+        OutlinedButton(
+            onClick = { viewModel.continueOnDevice() },
+            modifier = Modifier
+                .fillMaxWidth()
+                .padding(top = 12.dp)
+                .height(48.dp),
+            enabled = !uiState.isLoading
+        ) {
+            Text("Continue on this device", color = PrimaryGreen, fontWeight = FontWeight.Bold)
+        }
+
+        Text(
+            text = "Records stay on this device. Account sign-in needs your own Firebase project.",
+            style = MaterialTheme.typography.bodySmall,
+            color = Color.Gray,
+            modifier = Modifier.padding(top = 8.dp)
+        )
+
         TextButton(
             onClick = { navController.navigate("signup") },
-            modifier = Modifier.padding(top = 16.dp)
+            modifier = Modifier.padding(top = 8.dp)
         ) {
             Text("Don't have an account? Sign Up", color = PrimaryGreen)
         }

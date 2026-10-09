@@ -37,6 +37,13 @@ class AuthViewModel @Inject constructor(
     private val _loginUiState = MutableStateFlow(LoginUiState())
     val loginUiState = _loginUiState.asStateFlow()
 
+    fun continueOnDevice() {
+        viewModelScope.launch {
+            userRepository.ensureLocalUser(LOCAL_DEVICE_USER_ID, "This device")
+            _loginUiState.update { it.copy(loginSuccess = true, userId = LOCAL_DEVICE_USER_ID, error = null) }
+        }
+    }
+
     private val _signupUiState = MutableStateFlow(SignupUiState())
     val signupUiState = _signupUiState.asStateFlow()
 
@@ -146,5 +153,9 @@ class AuthViewModel @Inject constructor(
         firebaseAuth.signOut()
         _loginUiState.update { LoginUiState() }
         _signupUiState.update { SignupUiState() }
+    }
+
+    companion object {
+        const val LOCAL_DEVICE_USER_ID = "local-device"
     }
 }

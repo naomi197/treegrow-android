@@ -25,19 +25,19 @@ data class BottomNavItem(
 fun BottomNavBar(navController: NavController, currentRoute: String?) {
     val items = listOf(
         BottomNavItem(
-            label = "خانه",
+            label = "Home",
             icon = Icons.Outlined.Home,
             selectedIcon = Icons.Filled.Home,
             route = "home"
         ),
         BottomNavItem(
-            label = "نقشه",
+            label = "Map",
             icon = Icons.Outlined.Map,
             selectedIcon = Icons.Filled.Map,
             route = "map"
         ),
         BottomNavItem(
-            label = "پروفایل",
+            label = "Profile",
             icon = Icons.Outlined.Person,
             selectedIcon = Icons.Filled.Person,
             route = "profile"
